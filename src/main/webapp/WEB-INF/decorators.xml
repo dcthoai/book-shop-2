@@ -1,0 +1,25 @@
+<decorators defaultdir="/templates/">
+	<decorator name="register" page="">
+		<pattern>/register*</pattern>
+	</decorator>
+	
+	<decorator name="login" page="">
+		<pattern>/login*</pattern>
+	</decorator>
+	
+	<decorator name="logout" page="">
+		<pattern>/logout*</pattern>
+	</decorator>
+	
+	<decorator name="auth" page="">
+		<pattern>/auth*</pattern>
+	</decorator>
+	
+	<decorator name="user" page="user/base.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+	
+	<decorator name="admin" page="admin/base.jsp">
+		<pattern>/admin*</pattern>
+	</decorator>
+</decorators>
