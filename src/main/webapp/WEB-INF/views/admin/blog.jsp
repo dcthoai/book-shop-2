@@ -6,7 +6,7 @@
 </head>
 
 <body>
-	<h4 class="p-3 ps-lg-0 fs-4 text-light fw-semibold">Quản lý các blog</h4>
+	<h4 class="p-3 ps-lg-0 fs-4 text-light fw-semibold">Quản lý các bài viết</h4>
 	
 	<div class="w-100 d-flex flex-wrap justify-content-between my-4">
         <div class="d-flex form-search-book mb-4">
@@ -25,10 +25,9 @@
         </div>
 
         <div class="card-body">
-            <table id="table-list-slides" class="w-100 table table-striped table-bordered table-hover">
+            <table id="table-list-blogs" class="w-100 table table-striped table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th class="d-none"><input type="checkbox" name="table-select-all" id="table-select-all"></th>
                         <th class="text-center">Tiêu đề</th>
                         <th class="text-center">Tác giả</th>
                         <th class="text-center">Ngày tạo</th>
@@ -37,18 +36,22 @@
                     </tr>
                 </thead>
                 
-                <tbody>
+                <tbody id="search-blog-container" class="pt-4">
                 	<c:forEach var="blog" items="${ blogs }">
                 		<tr>
 	                        <td class="d-none"><input type="checkbox" name="table-select"></td>
 	                        <td class="">${ blog.title }</td>
-	                        <td class="">${ userService.getUserById(blog.authorId).getFullname() }</td>
+	                        <td class="">${ userService.getUserById(blog.authorId).getUsername() }</td>
 	                        <td class="text-center ">${ blog.createdDate }</td>
 	                        <td class="text-center ">${ blog.modifiedDate }</td>
 	                        <td>
 	                            <div class="w-100 h-100 d-flex justify-content-evenly">
-	                                <a href="" class="flex-fill edit-book"><i class="fa-regular fa-pen-to-square"></i></a>
-	                                <a href="" class="flex-fill delete-book"><i class="fa-regular fa-trash-can"></i></a>
+	                                <a href="${BASE_URL}/admin/blog/edit?id=${ blog.id }" class="flex-fill edit-blog">
+	                                	<i class="fa-regular fa-pen-to-square"></i>
+                                	</a>
+	                                <a data-id="${ blog.id }" class="flex-fill delete-blog">
+	                                	<i class="fa-regular fa-trash-can"></i>
+                                	</a>
 	                            </div>
 	                        </td>
 	                    </tr>
@@ -57,4 +60,6 @@
             </table>
         </div>
     </div>
+    
+    <script type="text/javascript" src="${BASE_URL}/static/admin/js/blog.js"></script>
 </body>

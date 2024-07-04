@@ -1,27 +1,26 @@
 
-const submitSlideBtn = document.getElementById('edit-slide');
-const thumbnailSlideInput = document.getElementById('thumbnail-demo');
+const submitBlogBtn = document.getElementById('edit-blog');
+const thumbnailBlogInput = document.getElementById('thumbnail-demo');
 
 document.getElementById('thumbnail').addEventListener('change', function(e) {
-    thumbnailSlideInput.src = URL.createObjectURL(e.target.files[0]);
+    thumbnailBlogInput.src = URL.createObjectURL(e.target.files[0]);
 });
 
-submitSlideBtn.addEventListener('click', () => {
+submitBlogBtn.addEventListener('click', () => {
 	let formData = new FormData();
 
     // Fetch các giá trị từ form và thêm vào FormData
-    formData.append('caption', document.getElementById('caption').value);
+    formData.append('title', document.getElementById('title').value);
     formData.append('content', document.getElementById('content').value);
-    formData.append('link', document.getElementById('link').value);
     
 	let thumbnailFile = document.getElementById('thumbnail').files[0];
     
 	if (thumbnailFile)
 	    formData.append('thumbnail', thumbnailFile);
     
-    formData.append('id', submitSlideBtn.dataset.id);
+    formData.append('id', submitBlogBtn.dataset.id);
     
-    fetch(BASE_URL + '/admin/slide/update', {
+    fetch(BASE_URL + '/admin/blog/update', {
         method: 'POST',
         body: formData
     })
@@ -44,6 +43,6 @@ submitSlideBtn.addEventListener('click', () => {
 });
 
 
-document.getElementById('cancel-slide').addEventListener('click', () => {
-	window.location.href = BASE_URL + '/admin/slide';
+document.getElementById('cancel-blog').addEventListener('click', () => {
+	window.location.href = BASE_URL + '/admin/blog';
 })

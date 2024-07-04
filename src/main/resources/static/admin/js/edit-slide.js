@@ -32,7 +32,7 @@ submitSlideBtn.addEventListener('click', () => {
 			
 			setTimeout(() => {
 				location.reload();
-			}, 1500);
+			}, 1000);
 		} else {
 			openPopupNotify('Thất bại', status.message, 'error');
 		}

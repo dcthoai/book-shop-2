@@ -95,12 +95,6 @@
     overflow-x: scroll;
 }
 
-.content .card-body .table th:first-child,
-.content .card-body .table td:first-child{
-    width: 1.5rem;
-    vertical-align: middle;
-}
-
 .content .card-body .table th:not(:first-child),
 .content .card-body .table td:not(:first-child){
     width: fit-content;

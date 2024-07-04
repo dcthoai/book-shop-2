@@ -81,4 +81,13 @@ public class BlogDAO extends AbstractDAO<Blog> implements IBlogDAO{
 		List<Blog> listBlogs = executeQuery(sql, new MapperBlog()); 
 		return listBlogs;
 	}
+
+	@Override
+	public List<Blog> searchByName(String key) {
+		String sql = "SELECT * FROM `bookstore`.`blog` WHERE (`title` LIKE ?)";
+		
+		List<Blog> listBlogs = executeQuery(sql, new MapperBlog(), key);
+		
+		return listBlogs;
+	}
 }
