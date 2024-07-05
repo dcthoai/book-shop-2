@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.springmvc.dao.impl.BlogDAO;
 import com.springmvc.model.Blog;
-import com.springmvc.model.Book;
 import com.springmvc.service.IBlogService;
 
 @Service
@@ -15,6 +14,12 @@ public class BlogService implements IBlogService{
 
 	@Autowired
 	private BlogDAO blogDAO;
+	
+	@Autowired
+	private MediaFileService mediaFileService;
+	
+	@Autowired
+	private MediaService mediaService;
 	
 	@Override
 	public List<Blog> getAllBlogs() {
@@ -40,6 +45,13 @@ public class BlogService implements IBlogService{
 
 	@Override
 	public boolean deleteBlog(int blogId) {
+		Blog blog = getById(blogId);
+		
+		if (blog != null) {
+			mediaFileService.deleteFile(mediaService.getMediaById(blog.getThumbnailId()).getPath());
+			mediaService.deleteMedia(blog.getThumbnailId());
+		}
+		
 		int affectedRows = blogDAO.delete(blogId);
 		
 		return affectedRows > 0;
