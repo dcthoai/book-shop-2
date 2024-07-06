@@ -3,9 +3,6 @@ FROM tomcat:9.0
 # Xóa ứng dụng web mặc định
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Tạo thư mục uploads
-RUN mkdir -p /usr/local/tomcat/uploads
-
 # Copy file WAR vào thư mục webapps của Tomcat
 COPY *.war /usr/local/tomcat/webapps/
 
