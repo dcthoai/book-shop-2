@@ -25,7 +25,7 @@
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
 		<!-- Production -->
-		<property name="url" value="mysql://root:qXejZMTIQfOPeIlWbrBGPoYuiLkFxfXT@roundhouse.proxy.rlwy.net:11847/railway"></property>
+		<property name="url" value="jdbc:mysql://root:qXejZMTIQfOPeIlWbrBGPoYuiLkFxfXT@roundhouse.proxy.rlwy.net:11847/railway"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="qXejZMTIQfOPeIlWbrBGPoYuiLkFxfXT"></property>
 

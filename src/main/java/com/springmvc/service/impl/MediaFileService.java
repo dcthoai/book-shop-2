@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class MediaFileService {
 
     private String uploadPath = "/usr/local/tomcat/uploads/";
+//    private String uploadPath = "D:/Workspaces/Java/web/spring-mvc/bookstore/uploads/";
 
     public boolean isUploadFile(MultipartFile file) {
         return file != null && !file.isEmpty();
