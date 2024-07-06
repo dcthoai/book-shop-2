@@ -1,19 +1,16 @@
 FROM tomcat:9.0
 
-WORKDIR /app
-
 # Xóa ứng dụng web mặc định
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Tạo thư mục uploads
 RUN mkdir -p /usr/local/tomcat/uploads
 
-# Sao chép ứng dụng WAR
+# Copy file WAR vào thư mục webapps của Tomcat
 COPY *.war /usr/local/tomcat/webapps/
 
-# Sao chép thư mục uploads từ máy chủ vào image
-COPY uploads/ /usr/local/tomcat/uploads/
-
+# Expose the required port
 EXPOSE 8080
 
+# Start Tomcat
 CMD ["catalina.sh", "run"]

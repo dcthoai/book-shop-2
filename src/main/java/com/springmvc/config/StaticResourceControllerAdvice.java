@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @ControllerAdvice
 public class StaticResourceControllerAdvice {
 
-    private final String staticResourceUrl = "";
+    private final String staticResourceUrl = "/bookstore";
 
     @ModelAttribute
     public void addStaticResourceUrl(Model model) {

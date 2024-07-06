@@ -11,7 +11,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 
 public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-    private String BASE_URL = "";
+    private String BASE_URL = "/bookstore";
 
     @Override
     public void commence(HttpServletRequest request, 
