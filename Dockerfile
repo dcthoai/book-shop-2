@@ -1,4 +1,4 @@
-FROM tomcat:9.0
+FROM tomcat:9.0.86
 
 # Xóa ứng dụng web mặc định
 RUN rm -rf /usr/local/tomcat/webapps/*
