@@ -260,7 +260,6 @@
 
 .personal .form-change.form-change-password .form__body-submit,
 .personal .form-change.form-forgot-password .form__body-submit{
-    width: 60px;
     position: absolute;
     right: 48px;
     bottom: 16px;

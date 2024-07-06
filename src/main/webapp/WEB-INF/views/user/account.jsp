@@ -56,8 +56,8 @@
                         <div class="form-change" style="display: none; animation: 0.3s ease 0s 1 normal forwards running close;">
                             <div class="form__heading">Thay đổi họ tên:</div>
                             <div class="form__body">
-                                <input type="text" class="form__body-input" name="fullname">
-                                <button type="button" class="form__body-submit">Lưu</button>
+                                <input type="text" class="form__body-input" value="${ user.fullname }" id="fullname" name="fullname">
+                                <button type="button" class="form__body-submit" id="fullname-submit">Lưu</button>
                             </div>
                         </div>
                     </div>
@@ -75,8 +75,8 @@
                         <div class="form-change" style="animation: 0.3s ease 0s 1 normal forwards running close; display: none;">
                             <div class="form__heading">Thay đổi Email:</div>
                             <div class="form__body">
-                                <input type="text" class="form__body-input" name="email">
-                                <button type="button" class="form__body-submit">Lưu</button>
+                                <input type="text" class="form__body-input" name="email" value="${ user.email }" id="email">
+                                <button type="button" class="form__body-submit" id="email-submit">Lưu</button>
                             </div>
                         </div>
                     </div>
@@ -94,8 +94,8 @@
                         <div class="form-change" style="animation: 0.3s ease 0s 1 normal forwards running close; display: none;">
                             <div class="form__heading">Thay đổi Số điện thoại:</div>
                             <div class="form__body">
-                                <input type="text" class="form__body-input" name="phone-number">
-                                <button type="button" class="form__body-submit">Lưu</button>
+                                <input type="text" class="form__body-input" name="phone-number" value="${ user.phone }" id="phone">
+                                <button type="button" class="form__body-submit" id="phone-submit">Lưu</button>
                             </div>
                         </div>
                     </div>
@@ -128,10 +128,10 @@
                             <div class="form__heading">Thay đổi mật khẩu:</div>
                             <div class="form__body">
                                 <span class="error-message"></span>
-                                <input type="password" autocomplete="off" class="form__body-input" name="password" placeholder="Nhập mật khẩu tài khoản">
+                                <input type="password" autocomplete="off" id="old-pass" class="form__body-input" name="password" placeholder="Nhập mật khẩu tài khoản">
                                 <span class="error-message"></span>
-                                <input type="password" autocomplete="off" class="form__body-input" name="new-password" placeholder="Nhập mật khẩu mới">
-                                <button type="button" class="form__body-submit">Lưu</button>
+                                <input type="password" autocomplete="off" id="new-pass" class="form__body-input" name="new-password" placeholder="Nhập mật khẩu mới">
+                                <button type="button" class="form__body-submit" id="password-submit">Lưu</button>
                             </div>
                         </div>
                     </div>
@@ -164,8 +164,8 @@
                         <div class="form-change" style="animation: 0.3s ease 0s 1 normal forwards running close; display: none;">
                             <div class="form__heading">Thay đổi địa chỉ giao hàng:</div>
                             <div class="form__body">
-                                <input type="text" class="form__body-input" name="new-address">
-                                <button type="button" class="form__body-submit">Lưu</button>
+                                <input type="text" class="form__body-input" name="new-address" value="${ user.address }" id="address">
+                                <button type="button" class="form__body-submit" id="address-submit">Lưu</button>
                             </div>
                         </div>
                     </div>
@@ -186,4 +186,5 @@
     </div>
 
 	<script src="${BASE_URL}/static/user/js/account.js"></script>
+	<script src="${BASE_URL}/static/user/js/update-info.js"></script>
 </body>

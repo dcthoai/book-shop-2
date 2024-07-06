@@ -53,8 +53,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 		return userDAO.insert(user);
 	}
 	
-	public int update(UserDetailsCustom user) {
-		return userDAO.update(user);
+	public boolean update(UserDetailsCustom user) {
+		return userDAO.update(user) > 0;
 	}
 	
 	public UserDetailsCustom getUserById(int id) {
