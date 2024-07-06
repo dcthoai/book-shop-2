@@ -13,7 +13,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
 
 	@Override
 	public int insert(Order order) {
-		String sql = "INSERT INTO `bookstore`.`order` ("
+		String sql = "INSERT INTO `order` ("
 				+ " userId, orderStatus, address, customerName, customerPhone, paymentMethod, "
 				+ " shippingCost, discount, totalPayment, "
 				+ " orderDate, estimatedArrival, createdBy) "
@@ -37,7 +37,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
 
 	@Override
 	public int update(Order order) {
-		String sql = "UPDATE `bookstore`.`order` SET "
+		String sql = "UPDATE `order` SET "
 				+ " orderStatus = ?, address = ?, customerName = ?, customerPhone = ?, paymentMethod = ?, "
 				+ " estimatedArrival = ?, shipperPhone = ?, deliveredAt = ?, modifiedBy = ? "
 				+ " WHERE id = ?";
@@ -58,7 +58,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
 
 	@Override
 	public int delete(int id) {
-		String sql = "DELETE FROM `bookstore`.`order` WHERE id = ?";
+		String sql = "DELETE FROM `order` WHERE id = ?";
 		
 		int affectedRows = executeUpdate(sql, id);
 		
@@ -73,7 +73,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
 
 	@Override
 	public Order getById(int id) {
-		String sql = "SELECT * FROM `bookstore`.`order` WHERE id = ?";
+		String sql = "SELECT * FROM `order` WHERE id = ?";
 		
 		List<Order> listOrders = executeQuery(sql, new MapperOrder(), id);
 		
@@ -82,7 +82,7 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
 
 	@Override
 	public List<Order> getAllOrder() {
-		String sql = "SELECT * FROM `bookstore`.`order`";
+		String sql = "SELECT * FROM `order`";
 		
 		List<Order> listOrders = executeQuery(sql, new MapperOrder());
 		return listOrders;

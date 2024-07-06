@@ -13,7 +13,7 @@ public class BlogDAO extends AbstractDAO<Blog> implements IBlogDAO{
 	
 	@Override
 	public int insert(Blog blog) {
-		String sql = "INSERT INTO `bookstore`.`blog` (`authorId`, `thumbnailId`, `title`, `content`, `createdBy`) "
+		String sql = "INSERT INTO `blog` (`authorId`, `thumbnailId`, `title`, `content`, `createdBy`) "
 					+ "VALUES (?, ?, ?, ?, ?)";
 		
 		int blogId = executeInsert(sql, blog.getAuthorId(),
@@ -26,7 +26,7 @@ public class BlogDAO extends AbstractDAO<Blog> implements IBlogDAO{
 
 	@Override
 	public int update(Blog blog) {
-		String sql = "UPDATE `bookstore`.`blog` SET "
+		String sql = "UPDATE `blog` SET "
 						+ "`authorId` = ?, "
 						+ "`thumbnailId` = ?, "
 						+ "`title` = ?, "
@@ -44,7 +44,7 @@ public class BlogDAO extends AbstractDAO<Blog> implements IBlogDAO{
 
 	@Override
 	public int delete(int id) {
-		String sql = "DELETE FROM `bookstore`.`blog` WHERE (`id` = ?)";
+		String sql = "DELETE FROM `blog` WHERE (`id` = ?)";
 		
 		int affectedRows = executeUpdate(sql, id);
 		
@@ -59,7 +59,7 @@ public class BlogDAO extends AbstractDAO<Blog> implements IBlogDAO{
 	
 	@Override
 	public Blog getById(int id) {
-		String sql = "SELECT * FROM `bookstore`.`blog` WHERE (`id` = ?)";
+		String sql = "SELECT * FROM `blog` WHERE (`id` = ?)";
 		
 		List<Blog> listBlogs = executeQuery(sql, new MapperBlog(), id);
 		return listBlogs.isEmpty() ? null : listBlogs.get(0);
@@ -68,7 +68,7 @@ public class BlogDAO extends AbstractDAO<Blog> implements IBlogDAO{
 	@Override
 	public List<Blog> getNewBlogs() {
 		// Returns the 3 newest blogs
-		String sql = "SELECT * FROM `bookstore`.`blog` ORDER BY `createdDate` DESC LIMIT 3";
+		String sql = "SELECT * FROM `blog` ORDER BY `createdDate` DESC LIMIT 3";
 		
 		List<Blog> listBlogs = executeQuery(sql, new MapperBlog());
 		return listBlogs;
@@ -76,7 +76,7 @@ public class BlogDAO extends AbstractDAO<Blog> implements IBlogDAO{
 
 	@Override
 	public List<Blog> getAllBlogs() {
-		String sql = "SELECT * FROM `bookstore`.`blog`";
+		String sql = "SELECT * FROM `blog`";
 		
 		List<Blog> listBlogs = executeQuery(sql, new MapperBlog()); 
 		return listBlogs;
@@ -84,7 +84,7 @@ public class BlogDAO extends AbstractDAO<Blog> implements IBlogDAO{
 
 	@Override
 	public List<Blog> searchByName(String key) {
-		String sql = "SELECT * FROM `bookstore`.`blog` WHERE (`title` LIKE ?)";
+		String sql = "SELECT * FROM `blog` WHERE (`title` LIKE ?)";
 		
 		List<Blog> listBlogs = executeQuery(sql, new MapperBlog(), key);
 		

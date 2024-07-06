@@ -1,0 +1,37 @@
+
+.blog-detail .author {
+	margin-top: 8rem;
+}
+
+.blog-detail .author .author__connect h3 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0e0a0d;
+    position: relative;
+    width: fit-content;
+}
+
+.blog-detail .author .author__connect h3::after {
+	content: '';
+    position: absolute;
+    background-color: #0c1045;
+    width: 80%;
+    height: 2px;
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.blog-detail .content img {
+	aspect-ratio: 16/9;
+	margin-bottom: 1.5rem;
+}
+
+.header .custom-navbar-link li:nth-child(3) a {
+    opacity: 1;
+}
+
+.header .custom-navbar-link li:nth-child(3) a::after {
+    width: calc(100% - 1rem);
+}

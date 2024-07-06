@@ -11,7 +11,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 
 public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 	
-	private String BASE_URL = "/bookstore";
+	private String BASE_URL = "";
 
 	@Override
 	public void handle(HttpServletRequest request, 

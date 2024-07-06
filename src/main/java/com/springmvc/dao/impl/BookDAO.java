@@ -20,7 +20,7 @@ public class BookDAO extends AbstractDAO<Book> implements IBookDAO{
 
 	@Override
 	public int insert(Book book) {
-		String sql = "INSERT INTO book ("
+		String sql = "INSERT INTO `book` ("
 			    	+ "title, description, size, author, publisher, "
 			    	+ "languageid, categoryid, thumbnailid, "
 			    	+ "pages, weight, stock, price, "
@@ -49,7 +49,7 @@ public class BookDAO extends AbstractDAO<Book> implements IBookDAO{
 
 	@Override
 	public int update(Book book) {
-		String sql = "UPDATE `bookstore`.`book` SET "
+		String sql = "UPDATE `book` SET "
 						+ "title = ?, description = ?, size = ?, author = ?, publisher = ?, "
 				    	+ "languageid = ?, categoryid = ?, thumbnailid = ?, "
 				    	+ "pages = ?, weight = ?, stock = ?, price = ?, "
@@ -77,7 +77,7 @@ public class BookDAO extends AbstractDAO<Book> implements IBookDAO{
 
 	@Override
 	public int delete(int id) {
-		String sql = "DELETE FROM `bookstore`.`book` WHERE (`id` = ?)";
+		String sql = "DELETE FROM `book` WHERE (`id` = ?)";
 		
 		int affectedRows = executeUpdate(sql, id);
 		
@@ -92,7 +92,7 @@ public class BookDAO extends AbstractDAO<Book> implements IBookDAO{
 	
 	@Override
 	public Book getById(int id) {
-		String sql = "SELECT * FROM `bookstore`.`book` WHERE (`id` = ?)";
+		String sql = "SELECT * FROM `book` WHERE (`id` = ?)";
 		
 		List<Book> listBooks = executeQuery(sql, new MapperBook(), id);
 		return listBooks.isEmpty() ? null : listBooks.get(0);
@@ -100,14 +100,14 @@ public class BookDAO extends AbstractDAO<Book> implements IBookDAO{
 
 	@Override
 	public List<Book> getNewestBooks() {
-		String sql = "SELECT * FROM `bookstore`.`book` ORDER BY `createdDate` DESC LIMIT 36";
+		String sql = "SELECT * FROM `book` ORDER BY `createdDate` DESC LIMIT 36";
 		
 		List<Book> listBooks = executeQuery(sql, new MapperBook());
 		return listBooks;
 	}
 	
 	public List<Book> getLatestReleaseBooks(){
-		String sql = "SELECT * FROM `bookstore`.`book` ORDER BY `releaseDate` DESC LIMIT 36";
+		String sql = "SELECT * FROM `book` ORDER BY `releaseDate` DESC LIMIT 36";
 		
 		List<Book> listBooks = executeQuery(sql, new MapperBook());
 		return listBooks;
@@ -115,7 +115,7 @@ public class BookDAO extends AbstractDAO<Book> implements IBookDAO{
 
 	@Override
 	public Category getBookCategory(int categoryId) {
-		String sql = "SELECT * FROM `bookstore`.`category` WHERE (`id` = ?)";
+		String sql = "SELECT * FROM `category` WHERE (`id` = ?)";
 		
 		List<Category> listCategories = _jdbcTemplate.query(sql, new PreparedStatementSetter() {
 			
@@ -130,7 +130,7 @@ public class BookDAO extends AbstractDAO<Book> implements IBookDAO{
 
 	@Override
 	public Language getBookLanguage(int languageId) {
-		String sql = "SELECT * FROM `bookstore`.`language` WHERE (`id` = ?)";
+		String sql = "SELECT * FROM `language` WHERE (`id` = ?)";
 		
 		List<Language> listLanguages = _jdbcTemplate.query(sql, new PreparedStatementSetter() {
 			
@@ -145,7 +145,7 @@ public class BookDAO extends AbstractDAO<Book> implements IBookDAO{
 	
 	@Override
 	public List<Book> searchBook(String keyword){
-		String sql = "SELECT * FROM `bookstore`.`book` WHERE (`title` LIKE ?)";
+		String sql = "SELECT * FROM `book` WHERE (`title` LIKE ?)";
 		
 		List<Book> listBooks = executeQuery(sql, new MapperBook(), keyword);
 		
@@ -154,7 +154,7 @@ public class BookDAO extends AbstractDAO<Book> implements IBookDAO{
 
 	@Override
 	public List<Book> getRandomBook() {
-		String sql = "SELECT * FROM `bookstore`.`book` ORDER BY RAND() LIMIT 6";
+		String sql = "SELECT * FROM `book` ORDER BY RAND() LIMIT 6";
 		
 		List<Book> listBooks = executeQuery(sql, new MapperBook());
 		

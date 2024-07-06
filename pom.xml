@@ -148,8 +148,8 @@
 	</dependencies>
 
 	<build>
-		<finalName>bookstore</finalName>
-		<!--<finalName>ROOT</finalName>-->
+		<!--<finalName>bookstore</finalName>-->
+		<finalName>ROOT</finalName>
 
 		<plugins>
 			<plugin>

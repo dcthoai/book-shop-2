@@ -13,7 +13,7 @@ public class UserDAO extends AbstractDAO<UserDetailsCustom> implements IUserDAO 
 
 	@Override
 	public int insert(UserDetailsCustom user) {
-		String sql = "INSERT INTO `bookstore`.`user` (`username`, `password`, `email`, `role`, `createdBy`) VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO `user` (`username`, `password`, `email`, `role`, `createdBy`) VALUES (?, ?, ?, ?, ?)";
 		
 		int userId = executeInsert(sql, user.getUsername(),
 										user.getPassword(),
@@ -26,7 +26,7 @@ public class UserDAO extends AbstractDAO<UserDetailsCustom> implements IUserDAO 
 
 	@Override
 	public int update(UserDetailsCustom user) {
-		String sql = "UPDATE `bookstore`.`user` SET `email` = ?, "
+		String sql = "UPDATE `user` SET `email` = ?, "
 												+ "`password` = ?, "
 												+ "`phone` = ?, "
 												+ "`address` = ?, "
@@ -48,7 +48,7 @@ public class UserDAO extends AbstractDAO<UserDetailsCustom> implements IUserDAO 
 
 	@Override
 	public int delete(int id) {
-		String sql = "DELETE FROM `bookstore`.`user` WHERE (`id` = ?)";
+		String sql = "DELETE FROM `user` WHERE (`id` = ?)";
 		
 		int affectedRows = executeUpdate(sql, id);
 		
@@ -63,7 +63,7 @@ public class UserDAO extends AbstractDAO<UserDetailsCustom> implements IUserDAO 
 
 	@Override
 	public UserDetailsCustom getById(int id) {
-		String sql = "SELECT * FROM `bookstore`.`user` WHERE (`id` = ?)";
+		String sql = "SELECT * FROM `user` WHERE (`id` = ?)";
 		
 		List<UserDetailsCustom> listUsers = executeQuery(sql, new MapperUser(), id);
 		
@@ -72,7 +72,7 @@ public class UserDAO extends AbstractDAO<UserDetailsCustom> implements IUserDAO 
 
 	@Override
 	public UserDetailsCustom findUserByUsername(String username) {
-		String sql = "SELECT * FROM `bookstore`.`user` WHERE (`username` = ?)";
+		String sql = "SELECT * FROM `user` WHERE (`username` = ?)";
 		
 		List<UserDetailsCustom> listUsers = executeQuery(sql, new MapperUser(), username);
 		
@@ -81,7 +81,7 @@ public class UserDAO extends AbstractDAO<UserDetailsCustom> implements IUserDAO 
 
 	@Override
 	public UserDetailsCustom findUserByEmail(String email) {
-		String sql = "SELECT * FROM `bookstore`.`user` WHERE (`email` = ?)";
+		String sql = "SELECT * FROM `user` WHERE (`email` = ?)";
 		
 		List<UserDetailsCustom> listUsers = executeQuery(sql, new MapperUser(), email);
 		
@@ -90,7 +90,7 @@ public class UserDAO extends AbstractDAO<UserDetailsCustom> implements IUserDAO 
 
 	@Override
 	public List<UserDetailsCustom> getAllUsers() {
-		String sql = "SELECT * FROM `bookstore`.`user`";
+		String sql = "SELECT * FROM `user`";
 		
 		List<UserDetailsCustom> listUsers = executeQuery(sql, new MapperUser());
 		

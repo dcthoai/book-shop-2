@@ -14,7 +14,8 @@ public class StaticResourceHandlerConfig implements WebMvcConfigurer{
 	@Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
-		registry.addResourceHandler("/uploads/**").addResourceLocations("file:D:/Workspaces/Java/web/spring-mvc/bookstore/uploads/");
+//		registry.addResourceHandler("/uploads/**").addResourceLocations("file:D:/Workspaces/Java/web/spring-mvc/bookstore/uploads/");
+		registry.addResourceHandler("/uploads/**").addResourceLocations("file:/usr/local/tomcat/uploads/");
     }
 	
 	@Bean

@@ -13,7 +13,7 @@ public class SlideDAO extends AbstractDAO<Slide> implements ISlideDAO{
 	
 	@Override
 	public int insert(Slide slide) {
-		String sql = "INSERT INTO `bookstore`.`slide` (`thumbnailId`, `caption`, `content`, `link`, `createdBy`) "
+		String sql = "INSERT INTO `slide` (`thumbnailId`, `caption`, `content`, `link`, `createdBy`) "
 						+ "VALUES (?, ?, ?, ?, ?)";
 		
 		int slideId = executeInsert(sql, slide.getThumbnailId(),
@@ -26,7 +26,7 @@ public class SlideDAO extends AbstractDAO<Slide> implements ISlideDAO{
 
 	@Override
 	public int update(Slide slide) {
-		String sql = "UPDATE `bookstore`.`slide` SET "
+		String sql = "UPDATE `slide` SET "
 						+ "`thumbnailId` = ?, "
 						+ "`caption` = ?, "
 						+ "`content` = ?, "
@@ -44,7 +44,7 @@ public class SlideDAO extends AbstractDAO<Slide> implements ISlideDAO{
 
 	@Override
 	public int delete(int id) {
-		String sql = "DELETE FROM `bookstore`.`slide` WHERE (`id` = ?)";
+		String sql = "DELETE FROM `slide` WHERE (`id` = ?)";
 		
 		int affectedRows = executeUpdate(sql, id);
 		
@@ -59,7 +59,7 @@ public class SlideDAO extends AbstractDAO<Slide> implements ISlideDAO{
 	
 	@Override
 	public Slide getById(int id) {
-		String sql = "SELECT * FROM `bookstore`.`slide` WHERE (`id` = ?)";
+		String sql = "SELECT * FROM `slide` WHERE (`id` = ?)";
 		List<Slide> listSlides = executeQuery(sql, new MapperSlide(), id);
 		
 		return listSlides.isEmpty() ? null : listSlides.get(0);
@@ -67,7 +67,7 @@ public class SlideDAO extends AbstractDAO<Slide> implements ISlideDAO{
 
 	@Override
 	public List<Slide> getAllSlides() {
-		String sql = "SELECT * FROM `bookstore`.`slide` ORDER BY `createdDate` DESC";
+		String sql = "SELECT * FROM `slide` ORDER BY `createdDate` DESC";
 		List<Slide> listSlides = executeQuery(sql, new MapperSlide());
 		
 		return listSlides;

@@ -13,7 +13,7 @@ public class LanguageDAO extends AbstractDAO<Language> implements ILanguageDAO{
 
 	@Override
 	public int insert(Language language) {
-		String sql = "INSERT INTO `bookstore`.`language` (`name`, `code`, `createdBy`) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO `language` (`name`, `code`, `createdBy`) VALUES (?, ?, ?)";
 		
 		int categoryId = executeInsert(sql, language.getName(), language.getCode(), language.getCreatedBy());
 		return categoryId;
@@ -21,7 +21,7 @@ public class LanguageDAO extends AbstractDAO<Language> implements ILanguageDAO{
 
 	@Override
 	public int update(Language language) {
-		String sql = "UPDATE `bookstore`.`language` SET `name` = ?, `code` = ?, `modifiedBy` = ? WHERE (`id` = ?)";
+		String sql = "UPDATE `language` SET `name` = ?, `code` = ?, `modifiedBy` = ? WHERE (`id` = ?)";
 		
 		int affectedRows = executeUpdate(sql, language.getName(), language.getCode(), language.getModifiedBy(), language.getId());
 		return affectedRows;
@@ -29,7 +29,7 @@ public class LanguageDAO extends AbstractDAO<Language> implements ILanguageDAO{
 
 	@Override
 	public int delete(int id) {
-		String sql = "DELETE FROM `bookstore`.`language` WHERE (`id` = ?)";
+		String sql = "DELETE FROM `language` WHERE (`id` = ?)";
 		
 		int affectedRows = executeUpdate(sql, id);
 		
@@ -44,7 +44,7 @@ public class LanguageDAO extends AbstractDAO<Language> implements ILanguageDAO{
 	
 	@Override
 	public Language getById(int id) {
-		String sql = "SELECT * FROM `bookstore`.`language` WHERE (`id` = ?)";
+		String sql = "SELECT * FROM `language` WHERE (`id` = ?)";
 		List<Language> listLanguages = executeQuery(sql, new MapperLanguage(), id);
 		
 		return listLanguages.isEmpty() ? null : listLanguages.get(0);
@@ -52,7 +52,7 @@ public class LanguageDAO extends AbstractDAO<Language> implements ILanguageDAO{
 
 	@Override
 	public List<Language> getAllLanguages() {
-		String sql = "SELECT * FROM `bookstore`.`language`";
+		String sql = "SELECT * FROM `language`";
 		List<Language> listLanguages = executeQuery(sql, new MapperLanguage());
 		
 		return listLanguages;

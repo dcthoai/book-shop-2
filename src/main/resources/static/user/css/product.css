@@ -376,3 +376,11 @@ body{
     padding-left: 0.5rem;
 }
 
+
+.header .custom-navbar-link li:nth-child(2) a {
+    opacity: 1;
+}
+
+.header .custom-navbar-link li:nth-child(2) a::after {
+    width: calc(100% - 1rem);
+}
