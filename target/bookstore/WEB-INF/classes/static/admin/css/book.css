@@ -1,0 +1,27 @@
+
+.content .form-add-book {
+    background-color: var(--bg-light);
+}
+
+.content .form-add-book input:focus,
+.content .form-add-book textarea:focus{
+    outline: none;
+    border-color: var(--color-border);
+    box-shadow: 0 0.0625rem 0.25rem 0 var(--color-shadow);
+}
+
+.content .form-add-book input::placeholder{
+    opacity: 0.5;
+    font-weight: 400;
+    color: var(--bg-gray);
+}
+
+.content .form-add-book img.img-fluid{
+    aspect-ratio: 5/7;
+    max-width: 5rem;
+}
+
+.content .form-add-book .img-wrapper{
+    position: relative;
+    width: fit-content;
+}
